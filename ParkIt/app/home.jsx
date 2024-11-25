@@ -5,6 +5,8 @@ import { Link, router, useSegments, useRouter  } from 'expo-router';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalProvider from '../lib/GlobalProvider';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -30,12 +32,22 @@ const Home = () => {
     checkSession();
   }, []);
 
+  const navigation = useNavigation();
+
+  const handleLoginSuccess = () => {
+    // Reset the entire stack and set 'home' as the new root
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'index' }],
+    });
+  };
+
   const handleLogout = async () => {
     try {
       await AsyncStorage.removeItem('userSession'); // Clear local session
       await axios.post('http://192.168.82.231:3000/logout', {}, { withCredentials: true }); // End session on the server
       Alert.alert('Success', 'You have been logged out');
-      router.replace('/sign-in'); // Redirect to login page
+      handleLoginSuccess(); // Redirect to login page
     } catch (error) {
       console.error('Error during logout:', error);
       Alert.alert('Error', 'Unable to logout. Please try again.');

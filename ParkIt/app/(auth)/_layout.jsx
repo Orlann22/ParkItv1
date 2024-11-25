@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Slot, Stack } from "expo-router";
 import { StatusBar } from 'expo-status-bar'
+import '../../global.css'
 
 
 const AuthLayout = () => {
@@ -12,7 +13,7 @@ const AuthLayout = () => {
         <Stack.Screen name='sign-up' options={{ headerShown: false}}/>
       </Stack>
     
-      <StatusBar backgroundColor="#161622" style="light"/>
+      <StatusBar backgroundColor="#0F2FEB" style="light"/>
     </>
   )
 }

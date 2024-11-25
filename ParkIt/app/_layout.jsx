@@ -9,6 +9,10 @@ import "../global.css";
 
 const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
+    "Henry-Black": require("../assets/fonts/Henry-Black.ttf"),
+    "Henry-Bold": require("../assets/fonts/Henry-Bold.ttf"),
+    "Henry-Medium": require("../assets/fonts/Henry-Medium.ttf"),
+    "Henry-Regular": require("../assets/fonts/Henry-Regular.ttf"),
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -40,7 +44,7 @@ if(!fontsLoaded && !error) return null;
           <Stack.Screen name="reservation" options={{ headerShown: false }} />
       </Stack>
 
-      <StatusBar backgroundColor="#161622" style="light"/>
+      <StatusBar backgroundColor="#C8DEFF" style="dark"/>
     </>
   )
 }

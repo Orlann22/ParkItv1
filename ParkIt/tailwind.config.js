@@ -21,6 +21,10 @@ module.exports = {
         },
       },
       fontFamily: {
+        hblack: ["Henry-Black", "sans-serif"],
+        hbold: ["Henry-Bold", "sans-serif"],
+        hmedium: ["Henry-Medium", "sans-serif"],
+        hregular: ["Henry-Regular", "sans-serif"],
         pthin: ["Poppins-Thin", "sans-serif"],
         pextralight: ["Poppins-ExtraLight", "sans-serif"],
         plight: ["Poppins-Light", "sans-serif"],
