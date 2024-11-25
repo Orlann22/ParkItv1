@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { Slot, SplashScreen,Stack } from "expo-router";
+import { Slot, SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from 'react';
 import { StatusBar } from "expo-status-bar";
@@ -39,6 +39,7 @@ if(!fontsLoaded && !error) return null;
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="home" options={{ headerShown: false }} />
+          <Stack.Screen name="forgot" options={{ headerShown: false }} />
           <Stack.Screen name="parking" options={{ headerShown: false }} />
           <Stack.Screen name="payment" options={{ headerShown: false }} />
           <Stack.Screen name="reservation" options={{ headerShown: false }} />

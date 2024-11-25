@@ -6,6 +6,8 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalProvider from '../lib/GlobalProvider';
 import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from "expo-status-bar";
+
 
 
 const Home = () => {
@@ -63,25 +65,30 @@ const Home = () => {
   }
 
   return (
-    <SafeAreaView className="bg-primary flex-1">
-      <View>
+    <>
+      <SafeAreaView className="bg-primary flex-1">
         <View>
-          <Text className="text-white pl-5 pt-3 font-pbold text-xl">Welcome, {user?.username || 'Guest'}!</Text>
+          <View>
+            <Text className="text-white pl-5 pt-3 font-pbold text-xl">Welcome, {user?.username || 'Guest'}!</Text>
+          </View>
+          <TouchableOpacity
+            onPress={() => router.push('parking')}
+            className="bg-blue-500 p-5 rounded-md m-5"
+            >
+          <Text className="text-lg text-white text-center font-psemibold">Pick Parking Slot</Text>
+          </TouchableOpacity> 
+          <TouchableOpacity
+            onPress={handleLogout}
+            className="bg-red-500 p-5 rounded-md m-5"
+            >
+            <Text className="text-lg text-white text-center font-psemibold">Logout</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          onPress={() => router.push('parking')}
-          className="bg-blue-500 p-5 rounded-md m-5"
-        >
-        <Text className="text-lg text-white text-center font-psemibold">Pick Parking Slot</Text>
-        </TouchableOpacity> 
-        <TouchableOpacity
-          onPress={handleLogout}
-          className="bg-red-500 p-5 rounded-md m-5"
-        >
-          <Text className="text-lg text-white text-center font-psemibold">Logout</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+      <StatusBar backgroundColor="#161122" style="light"/>
+
+    </>
+    
   );
 };
 
