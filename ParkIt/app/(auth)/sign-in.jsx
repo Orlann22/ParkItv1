@@ -111,7 +111,6 @@ export default function HomeScreen() {
             />
           </View>
           <View 
-            // style={{ backgroundColor: 'white', padding: 20, borderRadius: 10, width: '100%', maxWidth: 400, marginTop: 30 }}
             className="bg-white rounded-[30px] w-full h-full px-4 "
           >
             <Text className="text-[32px] font-hbold text-black text-center mt-[40px]">

@@ -83,7 +83,7 @@ export default function App() {
             </Text>
           </View>
           <Text className="text-[15px] font-hregular text-black mt-3 text-center">
-            Start your parking journey!
+            Start your Parking Journey!
           </Text>
           <CustomButton 
             title="Get Started"
