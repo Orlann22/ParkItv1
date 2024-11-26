@@ -48,7 +48,7 @@ db.connect((err) => {
 
 // Signup route
 app.post('/signup', async (req, res) => {
-    var { username, email, password, mobile } = req.body;
+    var { firstName, lastName, email, password } = req.body;
     
     if (!email || !password) {
       return res.status(400).json({ message: 'All fields are required' });
@@ -56,9 +56,9 @@ app.post('/signup', async (req, res) => {
 
     password = await bcrypt.hash(password, 10);
   
-    const query = 'INSERT INTO users (username, email, password, mobile) VALUES (?, ?, ?, ?)';
+    const query = 'INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)';
   
-    db.query(query, [username, email, password, mobile], (err, result) => {
+    db.query(query, [firstName, lastName, email, password], (err, result) => {
       if (err) {
         console.error('Error inserting data:', err);
         return res.status(500).json({ message: 'Database error' });
@@ -90,7 +90,7 @@ app.post('/signin', (req, res) => {
         return res.status(401).json({ message: 'Invalid email or password' });
       }
       // Store user session
-      req.session.user = { id: results[0].id, username: results[0].username, email: results[0].email, mobile: results[0].mobile };
+      req.session.user = { id: results[0].id, firstName: results[0].first_name, lastName: results[0].last_name, email: results[0].email };
       res.status(200).json({ message: 'Login successful', user: req.session.user });
     } else {
       res.status(401).json({ message: 'Invalid email or password' });

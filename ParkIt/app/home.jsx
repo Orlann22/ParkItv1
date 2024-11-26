@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalProvider from '../lib/GlobalProvider';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from "expo-status-bar";
+import CustomButton from '../components/CustomButton';
 
 
 
@@ -69,20 +70,31 @@ const Home = () => {
       <SafeAreaView className="bg-primary flex-1">
         <View>
           <View>
-            <Text className="text-white pl-5 pt-3 font-pbold text-xl">Welcome, {user?.username || 'Guest'}!</Text>
+            <Text className="text-white pl-5 pt-3 font-pbold text-xl">Welcome, {user?.firstName || 'Guest'}!</Text>
           </View>
-          <TouchableOpacity
-            onPress={() => router.push('parking')}
-            className="bg-blue-500 p-5 rounded-md m-5"
-            >
-          <Text className="text-lg text-white text-center font-psemibold">Pick Parking Slot</Text>
-          </TouchableOpacity> 
-          <TouchableOpacity
-            onPress={handleLogout}
-            className="bg-red-500 p-5 rounded-md m-5"
-            >
-            <Text className="text-lg text-white text-center font-psemibold">Logout</Text>
-          </TouchableOpacity>
+
+          <CustomButton 
+            title="Pick Parking Slot"
+            containerStyles="mx-5 mt-5"
+            bgcolor={'#1849D6'}
+            textcolor={'white'}
+            handlePress={() => router.push('parking')}
+          />
+          <CustomButton 
+            title="OCR"
+            containerStyles="mx-5 mt-5"
+            bgcolor={'#1849D6'}
+            textcolor={'white'}
+            handlePress={() => router.push('parking')}
+          />
+          <CustomButton 
+            title="Logout"
+            containerStyles="mx-5 mt-5"
+            bgcolor={'#ef4444'}
+            textcolor={'white'}
+            handlePress={handleLogout}
+          />
+
         </View>
       </SafeAreaView>
       <StatusBar backgroundColor="#161122" style="light"/>
