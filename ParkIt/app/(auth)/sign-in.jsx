@@ -25,18 +25,18 @@ export default function HomeScreen() {
       return false;
     }
 
-    if (!email.trim() || !emailRegex.test(email)) {
-      Alert.alert('Validation Error', 'Please enter a valid email.');
-      return false;
-    }
+    // if (!email.trim() || !emailRegex.test(email)) {
+    //   Alert.alert('Validation Error', 'Please enter a valid email.');
+    //   return false;
+    // }
 
-    if (!password || !passwordRegex.test(password)) {
-      Alert.alert(
-        'Validation Error',
-        'Password must be at least 8 characters long and include both letters and numbers.'
-      );
-      return false;
-    }
+    // if (!password || !passwordRegex.test(password)) {
+    //   Alert.alert(
+    //     'Validation Error',
+    //     'Password must be at least 8 characters long and include both letters and numbers.'
+    //   );
+    //   return false;
+    // }
     
     return true;
   }

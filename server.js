@@ -93,7 +93,7 @@ app.post('/signin', (req, res) => {
       req.session.user = { id: results[0].id, firstName: results[0].first_name, lastName: results[0].last_name, email: results[0].email };
       res.status(200).json({ message: 'Login successful', user: req.session.user });
     } else {
-      res.status(401).json({ message: 'Invalid email or password' });
+      res.status(401).json({ message: 'User does not exist in the database' });
     }
   });
 });
